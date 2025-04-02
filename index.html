@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>  DIVYESH BARAIYA</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + portfolio main styles -->
+	<link rel="stylesheet" href="assets/css/meyawo.css">
+    <style>
+        .portfolio-row .portfolio-card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 350px; /* Ensure consistent height */
+            margin-bottom: 30px; /* Consistent spacing between rows */
+            border: 5px solid #962d98; /* Add a beautiful border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+        .portfolio-row .portfolio-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .portfolio-card-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%; /* Ensure images fill the square */
+        }
+        .service-row .service-card {
+            border: 5px solid #d081bc; /* Add a beautiful green border */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(154, 75, 75, 0.2); /* Add a subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            margin-bottom: 30px; /* Consistent spacing between rows */
+        }
+        .service-row .service-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .profile-photo {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border: 5px solid #f3e8ff; /* Add a border matching the theme */
+            border-radius: 50%; /* Circular shape */
+            overflow: hidden; /* Ensure the image fits within the circle */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image fills the circle */
+        }
+        .profile-photo:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .profile-photo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.1); /* Add a subtle overlay */
+            transition: background 0.3s ease; /* Smooth hover effect */
+        }
+        .profile-photo:hover::after {
+            background: rgba(0, 0, 0, 0.2); /* Darken overlay on hover */
+        }
+        .header-content {
+            gap: 30px; /* Increased space between the two divs */
+        }
+        .testimonial-card {
+            border: 5px solid #d081bc; /* Add a beautiful border */
+            border-radius: 15px; /* Slightly rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            margin-bottom: 30px; /* Consistent spacing between rows */
+        }
+        .testimonial-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .blog-card {
+            border: 5px solid #962d98; /* Add a beautiful border */
+            border-radius: 15px; /* Slightly rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+            margin-bottom: 30px; /* Consistent spacing between rows */
+        }
+        .blog-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .about {
+            display: flex; /* Use flexbox for alignment */
+            align-items: center; /* Vertically align items */
+            justify-content: space-between; /* Add space between image and text */
+            flex-wrap: wrap; /* Ensure responsiveness */
+            gap: 20px; /* Add space between the divs */
+        }
+        .about-img-holder {
+            flex: 1; /* Allow the image to take up equal space */
+            max-width: 45%; /* Limit the width of the image */
+        }
+        .about-img {
+            width: 100%; /* Ensure the image fits within its container */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 15px; /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        }
+        .about-caption {
+            flex: 1; /* Allow the text to take up equal space */
+            max-width: 45%; /* Limit the width of the text */
+            text-align: left; /* Align text to the left */
+        }
+        .education-card {
+            border: 5px solid #962d98; /* Add a beautiful border */
+            border-radius: 15px; /* Rounded corners */
+            padding: 20px; /* Add padding for spacing */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+            margin-bottom: 30px; /* Add spacing between cards */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+        }
+        .education-card:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+        .education-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #962d98;
+        }
+        .education-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+        }
+        .education-duration {
+            font-size: 1rem;
+            color: #777;
+        }
+        .education-description {
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">PORTFOLIO</a>         
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">Portfolio</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#testmonial">Experience</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#blog">College Subject</a>
+                </li>
+              
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                  <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>          
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        
+        <div class="header-content container d-flex align-items-center justify-content-between">
+            <!-- Profile Photo -->
+           
+            <!-- Text Content -->
+            <div class="text-content">
+                <h1 class="header-title">
+                    <span class="up">HI!</span>
+                    <span class="down">I Divyesh Baraiya</span>
+                </h1>
+                <p class="header-subtitle">GRAPHIC DESIGNER</p>
+            </div>
+        </div>
+    </header><!-- end of page header -->
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="assets/imgs/profile.jpg" class="about-img" alt="About Image">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle">Who Am I ?</p>
+                    <h2 class="section-title mb-3">About Me</h2>
+                    <p>
+                        I am a passionate graphic designer. Currently pursuing B.Voc at RK University, I am constantly honing my skills and learning new techniques to push the boundaries of design. Along with my studies, I am also doing on-the-job training where I collaborate with others to bring creative ideas to life.
+                    </p>
+                </div>
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    <section class="section" id="education">
+        <div class="container text-center">
+            <p class="section-subtitle">My Academic Journey</p>
+            <h6 class="section-title mb-6">Education</h6>
+            <div class="row">
+                <div class="col-md-6" >
+                    <div class="education-card" style="height: 260px;">
+                        <h5 class="education-title">Higher Secondary Education</h5>
+                        <p class="education-subtitle">Patak High School,Keshod</p>
+                        <p class="education-duration">2020- 2022</p>
+                        <p class="education-description">Completed higher secondary education with a focus on arts and design, laying the foundation for my creative career.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="education-card">
+                        <h5 class="education-title">Bachelor of Vocation (B.Voc)</h5>
+                        <p class="education-subtitle">RK University, Rajkot</p>
+                        <p class="education-duration">2022 - Present</p>
+                        <p class="education-description">Currently pursuing B.Voc in Graphic Design, focusing on creative design principles, software tools, and hands-on projects.</p>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- service section -->
+    <section class="section" id="service">
+       <div class="container text-center">
+            <p class="section-subtitle">What I Do ?</p>
+            <h6 class="section-title mb-6">Service</h6>
+            <!-- row -->
+            <div class="row service-row">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="logo-design.html">
+                            <img src="assets/imgs/logo-design2.png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <h6 class="title">Logo Design</h6>
+                            <p class="subtitle">As a graphic designer, I creating unique and memorable logos that leave a lasting impression.</p>
+                       </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="POSTER-DESIGN.HTML">
+                            <img src="assets/imgs/poster (1).png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <h6 class="title">Poster Design</h6>
+                           <p class="subtitle">As a graphic designer, I creating eye-catching social media posters that stand out in the crowded online space.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="body">
+                            <a href="COVER_PAGE.HTML">
+                            <img src="assets/imgs/template.png" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" class="icon">
+                            <h6 class="title">Cover Page</h6>
+                            <p class="subtitle">An attractive cover page design that grabs attention, arouses curiosity, and conveys the essence of the content in a visually appealing way.</p>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div><!-- end of row -->
+        </div>
+    </section><!-- end of service section -->
+
+    <!-- portfolio section -->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">What I Did ?</p>
+            <h6 class="section-title mb-6">Portfolio</h6>
+            <!-- row -->
+            <div class="row portfolio-row">
+                <div class="col-md-4">
+                    <a href="angelica.html" class="portfolio-card">
+                       
+                        <img src="assets/imgs/angelica.png" class="portfolio-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Angelica Herbotics</h5>
+                                <p class="font-weight-normal"></p>
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="pump.html" class="portfolio-card">
+                        <img class="portfolio-card-img" src="assets/imgs/pumps.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Krishna Pump</h5>
+                             
+                            </span>                         
+                        </span>                         
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="dreamers.html" class="portfolio-card">
+                        <img class="portfolio-card-img" src="assets/imgs/Globle.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Global Dreamers</h5>
+                            
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="tvs.html" class="portfolio-card">
+                        <img class="portfolio-card-img" src="assets/imgs/tvs.png" class="img-responsive rounded" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">    
+                        <span class="portfolio-card-overlay">
+                            <span class="portfolio-card-caption">
+                                <h4>Gopinath TVS</h5>
+                            
+                            </span>                         
+                        </span>                     
+                    </a>
+                </div>
+            </div><!-- end of row -->
+           
+        </div><!-- end of container -->
+    </section> <!-- end of portfolio section -->
+
+
+
+    <!-- testimonial section -->
+    <section class="section" id="testmonial">
+        <div class="container text-center">
+        
+            <h6 class="section-title mb-6">Experience </h6>
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card" style="height: 211px;">
+                        <div class="testimonial-card-img-holder" >
+                            <img src="assets/imgs/AN Architects.jpg" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                           
+                        </div>
+                        <div class="testimonial-card-body" style="height: 200px;">
+                            <h6 class="testimonial-card-title">A.N Architects</h6>
+                            <p class="testimonial-card-subtitle">I have six months of experience in A.N Architects. I did live sketches there. After that I gained some understanding of architecture and interior.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <div class="testimonial-card-img-holder">
+                            <img src="assets/imgs/LOGO.png" class="testimonial-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">                        
+                        </div>
+                        <div class="testimonial-card-body">
+                            <h6 class="testimonial-card-title">Krishiv Groups</h6>
+                            <p class="testimonial-card-subtitle">I have been working at Krishiv Groups for the past one year and four months. There I learned how to do social media posts, logo design, etc. and how to communicate with clients.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end of container -->
+    </section> <!-- end of testimonial section -->
+    
+    <!-- blog section -->
+    <section class="section" id="blog">
+        <!-- container -->
+        <div class="container text-center">
+            <p class="section-subtitle">College Work</p>
+            <h6 class="section-title mb-6">Courses Learned During Academic </h6>
+            <!-- blog-wrapper -->
+          <!-- end of blog wrapper -->
+
+            <!-- blog-wrapper -->
+            <div class="blog-card">
+                <div class="blog-card-header">
+                    <img src="assets/imgs/eds.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">Elements of design </h5>
+
+                    <p class="blog-card-caption">
+                        In the elements of design, I have studied Line, Shape, Color, Texture, Alignment etc. In which in color theory, I have also studied Basic colors: red, yellow, and blue. etc.
+                    </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/ct.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">Color theory </h5>
+
+                    <p class="blog-card-caption">
+                         In Color Theory, I learned about Color Wheel, Warm and Cool Colors, Effects of Colors etc. In which I got an understanding about Primary Colors and Secondary Colors in Color Wheel. After that I got knowledge about the effects of different colors like red color is known for love, fear and energy, similarly blue is used for calm and tranquility, green for nature, white for peace and simplicity.</p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/visual.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">
+                        Visual layout Softwares  </h5>
+
+                    <p class="blog-card-caption">
+                       Learned Photoshop, Illustrator, Sketchup software in Visual Layout Software. In which Illustrator is used to create vector based layouts and illustrations. Photoshop is the best quality image editing software</p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/bmes.png" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">
+                        Basic material Exploration  </h5>
+
+                    <p class="blog-card-caption">
+                         In Basic Material Exploration, we learned about different materials. We also learned about types of materials, strength, durability, texture, etc. We studied materials like cement, terracotta clay, plasticine clay, plaster of paris, etc. </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/act.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">
+                        Art,architecture & fashion history </h5>
+
+                    <p class="blog-card-caption">
+                       
+                 In Art, Architecture & Fashion History, we studied ancient art, medieval art, and modern art. Art, architecture, and fashion are fields that have left a significant mark on every aspect of human culture. By studying the history of these three fields, we are better understanding the modern and earth-based views of human society.  </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/pg.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page" style="height: 400px;">
+                    </div>
+
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title">
+                        Photography </h5>
+
+                    <p class="blog-card-caption">
+                       
+
+                        I studied about types of photography like Portrait Photography, Landscape Photography, Street Photography, Product Photography etc. For all this photography I visited Nyari Dam in Rajkot and Old Rajkot for Street Photography.
+                        </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/pod.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                 <div class="blog-card-body">
+                    <h5 class="blog-card-title">Principles Of Design  </h5>
+
+                    <p class="blog-card-caption">
+                        In the principles of design, Balance, Contrast, Movement, Unity & Harmony, Negative Space etc. were studied. In which it becomes easy to create creative designs using different principles of design.
+                    <p></p>
+                    
+                </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/3ds.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                 <div class="blog-card-body">
+                    <h5 class="blog-card-title">3DS max  </h5>
+
+                    <p class="blog-card-caption">
+                        I have acquired knowledge of 3D animation software. In which I learned to create 3D objects.  </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-card-header">
+                        <img src="assets/imgs/prst.jpg" class="blog-card-img" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                    </div>
+                <div class="blog-card-body">
+                    <h5 class="blog-card-title"> perspective  </h5>
+
+                    <p class="blog-card-caption">
+                        In perspective, I studied One-point perspective, Two-point perspective, eye level and vanishing point. I have also done live sketches.  </p>
+                    
+                    <p></p>
+                    
+                </div>
+                </div>
+               
+            <!-- end of blog wrapper -->
+
+        </div><!-- end of container -->
+    </section><!-- end of blog section -->
+
+    
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">       
+            <p class="mb-0">Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a >DIVYESH BARAIYA</a></p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+	
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+
+</body>
+</html>
